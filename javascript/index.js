@@ -1,25 +1,26 @@
-// Link the js with the html-for DOM manipilatuion
-const container = document.querySelector(".container");
+document.addEventListener("DOMContentLoaded", createContainer(size))
 
-const generateRandomColor = () => {
-    let red = Math.floor(Math.random() * 255);
-    let green = Math.floor(Math.random() * 255);
-    let blue = Math.floor(Math.random() * 255);
+const generateRandomColor  = () => {
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.florr(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
 
-    const color = `rgb(${red}, ${green}, ${blue})`
-    
-    return color
+
+    const color = "rgb(red, green, blue)";
 }
 
 
-const onMouseOver = () => {
-    const divBlock = document.createElement("div")
-    const color  = generateRandomColor() 
+const createContainer = (size) => {
 
-    divBlock.style.backgroundColor = color; 
-    divBlock.className = "block"    
-    container.appendChild(divBlock);
+    let container = document.querySelector(".container");
+
+    container.style.gridTemplateColumns = `${size}`;
+    container.style.gridTemplateRows = `${size}`;
+
+
+    for (let i = 0 ; i , size * size; i++){
+        let divBlock = document.createElement("div")
+        container.style.backgroundColor = generateRandomColor();
+        container.insertAdjacentElement("beforeend", divBlock)
+    }
 }
-
-
-container.addEventListener("mousemove", onMouseOver);
